@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% block content %}
+
+<div style="
+    background-image: url('../../static/img/castle2.png');
+    background-size: cover;
+    height: 100%;
+    overflow: scroll;
+  ">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'MSB3_RUS'">
+        <div class="wrapper_nav">
+            <div style="display: flex">
+                <div><a class="navbar-brand" href=""> Mario-snake </a></div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('game') }}">Играть</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('rating') }}"> Рейтинг</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">Выйти</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% if error %}
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{error}}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="container" style="
+      max-width: 790px;
+      font-family: 'MSB3_RUS';
+      color: #f2f2f2;
+      margin-left: 0;
+    ">
+        <h1 class="display-1 text-center">Личный кабинет</h1>
+        <div style="margin-top: 2rem">
+            <p class="display-4">Username : <b>{{username }}</b></p>
+            <p class="display-4">
+                Публичная информация :
+                <textarea class="form-control form-control-lg text-area" type="text" placeholder="Публичная информация" rows="7" readonly>{{public_info}}</textarea
+        >
+      </p>
+
+      {% if owner %}
+      <p class="display-4">
+        Закрытая информация :
+        <textarea
+          class="form-control form-control-lg text-area"
+          type="text"
+          placeholder="Закрытая информация"
+          rows="7"
+          readonly
+        >{{private_info}}</textarea
+        >
+      </p>
+      {% endif %}
+
+      <p class="display-4">Количество очков : <b>{{points}}</b></p>
+      <p class="display-4">Рейтинг : <b>{{ rating }}</b></p>
+    </div>
+
+    {% if owner %}
+    <form style="margin-bottom: 50px" action="" method="post">
+      <button
+        class="btn btn-primary"
+        id="button"
+        name="cert_button"
+        style="background-color: #007ac9"
+        type="submit"
+      >
+        Отредактировать данные
+      </button>
+    </form>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

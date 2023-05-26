@@ -1,0 +1,6 @@
+flask
+requests
+flask-sqlalchemy
+flask-login
+pandas
+pycryptodome

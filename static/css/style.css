@@ -1,0 +1,93 @@
+@font-face {
+	font-family: 'MSB2';
+	src: url('../../static/fonts/MSB2.ttf');
+}
+
+@font-face {
+	font-family: 'MSB3_RUS';
+	src: url('../../static/fonts/MSB3_RUS.TTF');
+}
+
+body {
+	height: 100vh
+}
+
+canvas {
+	display: block;
+	margin: 0 auto;
+}
+
+a {
+	color: #fff600;
+}
+
+.container_rating {
+	min-width: 100vw;
+	height: 100%;
+	font-family: 'MSB2';
+	letter-spacing: 0.1rem;
+	transform-origin: 0 0;
+	font-size: 3rem;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	margin-left: 0;
+	margin-right: 0;
+	padding: 0;
+}
+
+.footer {
+	width: 100vw;
+	height: 90px;
+	background-image: url('../../static/img/ground.png');
+	background-size: cover;
+}
+
+.text-area {
+	background-image: url('../../static/img/table_0.png');
+	background-size: cover;
+	padding-left: 2rem;
+	padding-right: 2rem;
+	border: none;
+}
+
+.wrapper_cabinet {
+	display: flex;
+}
+
+.btn_game-restart {
+	transition: opacity 3s 1s;
+	background-image: url('../../static/img/table_0.png');
+	background-size: cover;
+	color: wheat;
+}
+
+.btn_game-restart:hover {
+	filter: brightness(85%);
+}
+
+.container_game {
+	transition: opacity 4s
+}
+
+.wrapper_nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+}
+
+.btn_index {
+	color: #F6BBAF !important;
+	font-size: 1.3rem;
+	text-shadow: -2px 4px 1px #000000;
+	box-shadow: 0px 0px 0px #000000;
+	padding: 10px 25px;
+	border-radius: 0.1rem;
+	border: 3px outset #bcaca8;
+	background: #C74C26;
+}
+
+.btn_index:hover {
+	color: #D6A297 !important;
+	background: #A63F1F;
+	border-color: #1f1f1f;
+}

@@ -1,0 +1,102 @@
+{% extends 'base.html' %} {% block content %}
+
+<div style="
+    background-color: #5c93fb;
+    height: 100%;
+    overflow: hidden;
+    color: #f2f2f2;
+    position: relative;
+  ">
+    <div style="
+      position: absolute;
+      top: 1rem;
+      background-image: url('../../static/img/sky_rating.png');
+      background-size: contain, auto;
+      width: 100vw;
+      height: 82.5vh;
+    "></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="font-family: 'MSB3_RUS'">
+        <div class="wrapper_nav">
+            <div style="display: flex">
+                <div>
+                    {% if login %}
+                    <a class="navbar-brand" href="{{ url_for('game') }}"> Mario-snake </a> {% endif %} {% if nologin %}
+                    <a class="navbar-brand" href="{{ url_for('start') }}">
+            Mario-snake
+          </a> {% endif %}
+                </div>
+                {% if login %}
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('game') }}">Играть</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('cabinet' , id = id) }}">Личный кабинет</a
+              >
+            </li>
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+      <div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            {% if login %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Выйти</a>
+                        </li>
+                        {% endif %} {% if nologin %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Войти</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    {% if error %}
+    <div class="container">
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{error}}
+        </div>
+    </div>
+    {% endif %}
+
+    <div class="container container_rating">
+        <h1 class="display-1 text-center" style="transform: scale(2, 1)">RATING</h1>
+        <div class="display-4 text-center" style="padding-bottom: 50px">
+            <table border="1" class="dataframe" style="
+          margin-bottom: 50px;
+          border-color: #fff;
+          transform: scale(2, 1);
+          font-size: 2.5rem;
+        ">
+                <thead>
+                    <tr style="text-align: center">
+                        <th>Nom</th>
+                        <th>Username</th>
+                        <th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for number,id_, username,points in table %}
+                    <tr>
+                        <th>{{ number }}</th>
+                        <td>
+                            <a class="nav-link" href="{{ url_for('cabinet' , id = id_) }}">{{ username }}</a
+              >
+            </td>
+            <td>{{ points }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <!-- <div class="footer"></div> -->
+  </div>
+</div>
+
+{% endblock %}

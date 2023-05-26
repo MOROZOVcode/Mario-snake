@@ -1,0 +1,85 @@
+{% extends 'base.html' %} {% block content %}
+
+<audio autoplay>
+  <source
+    src="/static/audio/8-Bit_Universe_-_Super_Mario_Bros_Theme.mp3"
+    type="audio/mpeg"
+  />
+</audio>
+
+<div
+  style="
+    position: relative;
+    background-image: url('../../static/img/bacg_game2.png');
+    background-size: 100vw 100vh;
+    height: 100vh;
+    font-family: 'MSB3_RUS';
+    overflow: hidden;
+  "
+>
+  <nav
+    class="navbar navbar-expand-lg navbar-light bg-light"
+    style="font-family: 'MSB3_RUS'"
+  >
+    <div class="wrapper_nav">
+      <div style="display: flex">
+        <div><a class="navbar-brand" href=""> Mario-snake </a></div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('rating') }}"> Рейтинг</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('cabinet' , id = id) }}"
+                >Личный кабинет</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('logout') }}">Выйти</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  {% if error %}
+  <div class="container">
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+      {{error}}
+    </div>
+  </div>
+  {% endif %}
+
+  <div
+    style="
+      position: absolute;
+      top: 4rem;
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      z-index: 100;
+    "
+  >
+    <button
+      class="btn_game-restart"
+      style="opacity: 0; font-size: 2rem"
+      onclick="location.reload();
+			return false"
+    >
+      RESTART
+    </button>
+  </div>
+  <div class="container container_game" style="opacity: 1">
+    <canvas id="game" width="608" height="608"></canvas>
+    <script src="/static/js/game4.js"></script>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,10 @@
+bin/
+include/
+instance/
+lib/
+var/
+
+node_modules/
+
+/state.txt
+/pyvenv.cfg

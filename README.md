@@ -41,3 +41,24 @@
 
 Процесс игры и её перезапуск
 ![screencast](https://github.com/MOROZOVcode/Mario-snake/blob/main/forReadme/Mario-snake5.gif)
+
+---
+
+- **Установить проект к себе можно следующим образом**:
+
+1. Сначала необходимо установить Python3 (если он ещё не установлен).
+2. Далее переходим в терминал и вводим там следующие команды:
+
+```
+$ git clone https://github.com/MOROZOVcode/Mario-snake.git
+$ cd Mario-snake
+$ pip3 install -r requirements.txt
+```
+
+3. Чтобы открыть сайт в режиме разработки, необходимо ввести следующую команду:
+
+```
+$ python3 main.py
+```
+
+4. Затем перейти по ссылке http://127.0.0.1:15005/
